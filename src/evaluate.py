@@ -7,5 +7,5 @@ def evaluate_model(model, X_test, y_test):
 
     return {
         "accuracy": accuracy,
-        "report": classification_report(y_test, pred)
+        "report": classification_report(y_test, pred, zero_division=0)
     }
