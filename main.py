@@ -5,7 +5,8 @@ Load Data -> Encode -> Split -> Train -> Evaluate -> Save Model
 """
 
 from src.config import *
-from src.data_preprocessing import load_data, split_data
+from src.data_loader import load_data
+from src.data_preprocessing import split_data
 from src.feature_engineering import encode_target
 from src.train import train_model
 from src.evaluate import evaluate_model

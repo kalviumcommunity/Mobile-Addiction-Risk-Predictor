@@ -1,7 +1,25 @@
-import joblib
+"""
+Prediction module
+Responsible for inference only
+"""
 
-def load_model(path):
-    return joblib.load(path)
+from src.persistence import load_model
 
-def make_prediction(model, data):
-    return model.predict(data)
+
+def predict_risk(data, model_path):
+    """
+    Predict addiction risk.
+
+    Parameters:
+        data : Input data
+        model_path : Saved model path
+
+    Returns:
+        Prediction
+    """
+
+    model = load_model(model_path)
+
+    prediction = model.predict(data)
+
+    return prediction
