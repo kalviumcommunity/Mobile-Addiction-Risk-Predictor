@@ -1,4 +1,4 @@
-DATA_PATH = "data/mobile_usage_dataset.csv"
+DATA_PATH = "data/raw/mobile_usage_dataset.csv"
 MODEL_PATH = "models/addiction_model.pkl"
 
 TARGET_COLUMN = "Risk_Level"

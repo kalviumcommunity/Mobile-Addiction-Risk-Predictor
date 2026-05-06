@@ -1,0 +1,3 @@
+Random Forest Model
+Test Size: 0.2
+Random State: 42
