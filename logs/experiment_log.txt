@@ -1,3 +1,8 @@
-Random Forest Model
-Test Size: 0.2
+Experiment Log
+====================
+Learning Type: Supervised Learning
+Problem Type: Multi-Class Classification
+Model: Random Forest Classifier
+Test Size: 0.3
 Random State: 42
+Accuracy: 0.0
