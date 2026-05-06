@@ -1,5 +1,9 @@
 Model Evaluation Report
-=======================
+========================
+Learning Type: Supervised Learning
+Problem Type: Multi-Class Classification
+Target Variable: Risk_Level
+
 Accuracy: 0.0
 
               precision    recall  f1-score   support
