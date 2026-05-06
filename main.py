@@ -4,13 +4,12 @@ Runs complete ML workflow:
 Load Data -> Encode -> Split -> Train -> Evaluate -> Save Model
 """
 
-import joblib
-
 from src.config import *
 from src.data_preprocessing import load_data, split_data
 from src.feature_engineering import encode_target
 from src.train import train_model
 from src.evaluate import evaluate_model
+from src.persistence import save_model
 
 
 def main():
@@ -36,22 +35,32 @@ def main():
     # Evaluate model
     result = evaluate_model(model, X_test, y_test)
 
-    # Print results
+    # Print evaluation results
     print("Accuracy:", result["accuracy"])
     print(result["report"])
 
-    # Save metrics report
+    # Save evaluation report
     with open("reports/metrics.txt", "w") as file:
         file.write("Model Evaluation Report\n")
-        file.write("=======================\n")
+        file.write("========================\n")
         file.write(f"Accuracy: {result['accuracy']}\n\n")
         file.write(result["report"])
 
-    # Save trained model
-    joblib.dump(model, MODEL_PATH)
+    # Save trained model using persistence module
+    save_model(model, MODEL_PATH)
+
+    # Create experiment log
+    with open("logs/experiment_log.txt", "w") as log:
+        log.write("Experiment Log\n")
+        log.write("====================\n")
+        log.write("Model: Random Forest Classifier\n")
+        log.write(f"Test Size: {TEST_SIZE}\n")
+        log.write(f"Random State: {RANDOM_STATE}\n")
+        log.write(f"Accuracy: {result['accuracy']}\n")
 
     print("✅ Model Saved Successfully!")
     print("📄 Metrics Saved in reports/metrics.txt")
+    print("📝 Experiment Log Saved in logs/experiment_log.txt")
 
 
 if __name__ == "__main__":
